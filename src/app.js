@@ -3,7 +3,9 @@ const app = express();
 const http = require("http").createServer(app);
 const cors = require("cors");
 
-require("dotenv-safe").config();
+require("dotenv-safe").config({
+  allowEmptyValues: true,
+});
 
 //Settings
 app.set("port", process.env.PORT || 4000);
