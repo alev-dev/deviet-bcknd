@@ -3,9 +3,10 @@ const app = express();
 const http = require("http").createServer(app);
 const cors = require("cors");
 
-//Settings
-app.set("port", 4000);
+require("dotenv-safe").config();
 
+//Settings
+app.set("port", process.env.PORT || 4000);
 //Middlewares
 app.use(cors());
 app.use(express.json());
