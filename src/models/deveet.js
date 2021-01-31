@@ -32,10 +32,10 @@ const deveet = new Schema(
 );
 
 deveet.methods.setimg = function setimg(filename) {
-  this.img = `http://localhost:4000/public/${filename}`;
+  this.img = `https://deviet-backend.herokuapp.com/public/${filename}`;
 };
 deveet.methods.setvideo = function setvideo(filename) {
-  this.video = `http://localhost:4000/public/${filename}`;
+  this.video = `https://deviet-backend.herokuapp.com/public/${filename}`;
 };
 
 module.exports = model("deveet", deveet);
