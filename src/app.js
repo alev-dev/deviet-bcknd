@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
 const cors = require("cors");
-
 require("dotenv").config();
 
 //Settings
@@ -15,7 +14,5 @@ app.use(express.json());
 app.use("/api/user", require("./routes/user"));
 app.use("/api/deveet", require("./routes/deveet"));
 app.use("/api/comment", require("./routes/comment"));
-app.use("/public", express.static(`${__dirname}/storage/media`));
-
 app.use("/api/auth", require("./routes/auth"));
 module.exports = app;

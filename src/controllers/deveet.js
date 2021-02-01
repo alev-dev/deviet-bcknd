@@ -8,29 +8,23 @@ deveetCtrl.getDeveets = async (req, res) => {
 };
 
 deveetCtrl.createDeveet = async (req, res) => {
-  const { idUser, username, avatar, content, likes, mediaUrl } = req.body;
+  const { idUser, username, avatar, content, likes, img, video } = req.body;
   const newDeveet = new deveet({
     idUser,
     username,
     avatar,
     content,
     likes,
-    mediaUrl,
+    img,
+    video,
   });
-  if (req.file) {
-    const { mimetype, filename } = req.file;
-    if (mimetype.indexOf("image") === 0) {
-      newDeveet.setimg(filename);
-    } else if (mimetype.indexOf("video") === 0) {
-      newDeveet.setvideo(filename);
-    }
-  }
+
   newDeveet
     .save()
-    .then(() => {
+    .then(async () => {
       res.json({ message: "Deveet created" });
     })
-    .catch((err) => {
+    .catch(async (err) => {
       res.json(err);
     });
 };
@@ -60,6 +54,11 @@ deveetCtrl.getDeveet = async (req, res) => {
   const { id } = req.params;
   const dev = await deveet.findById(id);
   res.json(dev);
+};
+deveetCtrl.getDeveetsOfUser = async (req, res) => {
+  const { id } = req.params;
+  const devs = await deveet.find({ idUser: id });
+  res.json(devs);
 };
 
 module.exports = deveetCtrl;

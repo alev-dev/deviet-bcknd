@@ -31,11 +31,4 @@ const deveet = new Schema(
   { timestamps: true }
 );
 
-deveet.methods.setimg = function setimg(filename) {
-  this.img = `https://deviet-backend.herokuapp.com/public/${filename}`;
-};
-deveet.methods.setvideo = function setvideo(filename) {
-  this.video = `https://deviet-backend.herokuapp.com/public/${filename}`;
-};
-
 module.exports = model("deveet", deveet);

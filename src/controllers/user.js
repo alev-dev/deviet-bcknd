@@ -45,7 +45,7 @@ user.deleteUser = async (req, res) => {
 };
 user.getUser = async (req, res) => {
   const { id } = req.params;
-  const response = await modelUser.findById(id);
+  const response = await modelUser.findOne({ googleId: id });
   res.json(response);
 };
 

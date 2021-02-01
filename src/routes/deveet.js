@@ -6,10 +6,11 @@ const {
   createDeveet,
   getDeveet,
   updateDeveet,
+  getDeveetsOfUser,
 } = require("../controllers/deveet");
-const upload = require("../libs/storage");
 
-router.route("/").get(getDeveets).post(upload.single("media"), createDeveet);
+router.route("/").get(getDeveets).post(createDeveet);
+router.route("/user/:id").get(getDeveetsOfUser);
 router.route("/:id").get(getDeveet).delete(deleteDeveet).put(updateDeveet);
 
 module.exports = router;
