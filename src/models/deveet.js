@@ -27,6 +27,10 @@ const deveet = new Schema(
     video: {
       type: String,
     },
+    comments: {
+      type: Array,
+      default: [],
+    },
   },
   { timestamps: true }
 );
