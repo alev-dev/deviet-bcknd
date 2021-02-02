@@ -30,7 +30,16 @@ deveetCtrl.createDeveet = async (req, res) => {
 };
 deveetCtrl.updateDeveet = async (req, res) => {
   const { id } = req.params;
-  const { idUser, username, avatar, content, likes, mediaUrl } = req.body;
+  const {
+    idUser,
+    username,
+    avatar,
+    content,
+    likes,
+    img,
+    video,
+    comments,
+  } = req.body;
   const newDeveet = new deveet({
     _id: id,
     idUser,
@@ -38,7 +47,9 @@ deveetCtrl.updateDeveet = async (req, res) => {
     avatar,
     content,
     likes,
-    mediaUrl,
+    img,
+    video,
+    comments,
   });
   await deveet.findByIdAndUpdate(id, newDeveet);
   res.json("updated");
