@@ -13,6 +13,6 @@ const {
 router.route("/").get(getDeveets).post(createDeveet);
 router.route("/user/:id").get(getDeveetsOfUser);
 router.route("/:id").get(getDeveet).delete(deleteDeveet).put(updateDeveet);
-router.route("/:id/likes", updateLikeList);
+router.route("/:id/likes").put(updateLikeList);
 
 module.exports = router;
