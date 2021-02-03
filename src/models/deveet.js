@@ -18,8 +18,8 @@ const deveet = new Schema(
       required: true,
     },
     likes: {
-      type: Number,
-      default: 0,
+      type: Array,
+      default: [],
     },
     img: {
       type: String,
