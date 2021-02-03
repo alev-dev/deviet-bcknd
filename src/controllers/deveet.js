@@ -72,4 +72,11 @@ deveetCtrl.getDeveetsOfUser = async (req, res) => {
   res.json(devs);
 };
 
+deveetCtrl.updateLikeList = async (req, res) => {
+  const { id } = req.params;
+  const { likes } = req.body;
+  await deveet.findByIdAndUpdate(id, { likes });
+  res.json("updated");
+};
+
 module.exports = deveetCtrl;
