@@ -15,7 +15,6 @@ const deveet = new Schema(
     },
     content: {
       type: String,
-      required: true,
     },
     likes: {
       type: Array,
