@@ -19,6 +19,10 @@ const user = new Schema({
     required: true,
     unique: true,
   },
+  friends: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = model("user", user);
