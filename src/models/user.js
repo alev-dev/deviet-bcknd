@@ -23,6 +23,10 @@ const user = new Schema({
     type: Array,
     default: [],
   },
+  friendrequests: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = model("user", user);
