@@ -14,7 +14,7 @@ const io = require("socket.io")(http, {
 });
 
 //Settings
-
+app.set("port", process.env.PORT || 4000);
 //Middlewares
 app.use(cors());
 app.use(express.json());
