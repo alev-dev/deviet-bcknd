@@ -3,7 +3,8 @@ const chat = require("../models/chat");
 const chatCtrl = {};
 
 chatCtrl.getChat = async (req, res) => {
-  const result = await chat.find();
+  var len = (await chat.find().countDocuments()) - 25;
+  const result = await chat.find().skip(len);
   res.json(result);
 };
 chatCtrl.newMessage = (req, res) => {
