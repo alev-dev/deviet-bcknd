@@ -7,7 +7,7 @@ const userlogged = require("./models/userlogged");
 require("dotenv").config();
 const io = require("socket.io")(http, {
   cors: {
-    origin: "http://localhost:4000",
+    origin: "https://deviet-backend.herokuapp.com",
     credentials: true,
     methods: ["GET", "POST"],
   },
