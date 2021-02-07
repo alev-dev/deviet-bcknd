@@ -2,8 +2,9 @@ const app = require("./app");
 require("./database");
 
 const main = () => {
-  app.listen(app.get("port"), () => {
-    console.log("server on port " + app.get("port"));
+  app.listen(4000, () => {
+    console.log("server on port " + "4000");
   });
 };
+
 main();
