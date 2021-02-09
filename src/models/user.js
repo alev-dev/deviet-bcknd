@@ -27,6 +27,10 @@ const user = new Schema({
     type: Array,
     default: [],
   },
+  friendsendquest: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = model("user", user);

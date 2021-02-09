@@ -25,13 +25,22 @@ user.createUser = (req, res) => {
 };
 user.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { username, email, password, friends, friendrequests } = req.body;
+  const {
+    username,
+    email,
+    password,
+    friends,
+    friendrequests,
+    friendsendquest,
+  } = req.body;
   const newUser = new modelUser({
+    _id: id,
     username,
     password,
     email,
     friends,
     friendrequests,
+    friendsendquest,
   });
   await modelUser.findByIdAndUpdate(id, newUser);
   res.json({ message: "user Updated" });

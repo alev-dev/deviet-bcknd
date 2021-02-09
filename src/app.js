@@ -32,14 +32,14 @@ var usersOnline = [];
 io.on("connection", (socket) => {
   var user_id = socket.id;
   socket.on("login", async (data) => {
-    var { name, email, picture, id } = data;
-    usersOnline.push({ name, email, avatar: picture, id });
-    socket.userId = id;
+    var { username, email, avatar, googleId } = data;
+    usersOnline.push({ username, email, avatar, googleId });
+    socket.userId = googleId;
     var newUser = new userlogged({
-      username: name,
+      username,
       email,
-      avatar: picture,
-      googleId: id,
+      avatar,
+      googleId,
     });
     await newUser
       .save()
