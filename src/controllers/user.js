@@ -32,6 +32,7 @@ user.updateUser = async (req, res) => {
     friends,
     friendrequests,
     friendsendquest,
+    chats,
   } = req.body;
   const newUser = new modelUser({
     _id: id,
@@ -41,7 +42,9 @@ user.updateUser = async (req, res) => {
     friends,
     friendrequests,
     friendsendquest,
+    chats,
   });
+  console.log(chats);
   await modelUser.findByIdAndUpdate(id, newUser);
   res.json({ message: "user Updated" });
 };

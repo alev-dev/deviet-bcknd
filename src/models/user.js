@@ -31,6 +31,10 @@ const user = new Schema({
     type: Array,
     default: [],
   },
+  chats: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = model("user", user);

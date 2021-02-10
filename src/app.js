@@ -52,6 +52,12 @@ io.on("connection", (socket) => {
     io.sockets.emit("userslogged", usersOnline);
   });
 
+  socket.on("newChatmessageSend", (data) => {
+    var { receptor, messages } = data;
+    console.log(receptor, messages);
+    io.sockets.emit("newChatmessage", { receptor, messages });
+  });
+
   socket.on("newMessage", (data) => {
     var { avatar, idUser, message, name } = data;
     const newMessage = new chat({
