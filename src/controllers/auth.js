@@ -18,6 +18,8 @@ exports.googleLogin = (req, res) => {
       res.json(userData);
     })
     .catch((err) => {
+      console.log("asd");
+
       res.json(err);
     });
 };
