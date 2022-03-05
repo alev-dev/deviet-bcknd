@@ -12,5 +12,5 @@ mongoose.connect(
 const connection = mongoose.connection;
 
 connection.once("open", () => {
-  console.log("database connected");
+  console.log("database connectedd");
 });
